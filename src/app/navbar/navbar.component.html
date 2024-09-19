@@ -1,0 +1,158 @@
+<div class="w-full h-full bg-gradient-to-r from-blue-200 via-blue-50 to-blue-100">
+    <div class="flex justify-center w-full">
+        <p-menubar>
+            <div class="flex justify-stretch ">
+
+                <div class="flex items-center mr-[170px] justify-center">
+                    <img src="https://cdn-b.saashub.com/images/app/service_logos/277/0mdcecm411do/large.png?1724312508"
+                        alt="Boltshift logo" class="mr-3 w-8 h-8" />
+                    <h2 class="text-xl font-bold mr-2 text-black">Boltshift</h2>
+                </div>
+                <div class="flex space-x-2 justify-center items-center">
+                    <p-button *ngFor="let item of items"
+                        class="text1 text-[13px] rounded-[25px] px-[5px] hover:bg-white text-black">
+                        {{ item.label }}
+                    </p-button>
+                </div>
+
+                <div class="ml-[130px] flex justify-center items-center">
+                    <p-button class="sa mr-2 text-black" icon="pi pi-cog " [rounded]="true" [raised]="true"></p-button>
+                    <p-button class="sa" icon="pi pi-bell text-black" [rounded]="true" [raised]="true"></p-button>
+                </div>
+
+                <div class="flex items-center ">
+                    <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="User" class="rounded-full w-8 h-8 ml-2" />
+                </div>
+
+            </div>
+
+        </p-menubar>
+    </div>
+    <div class="flex justify-between mt-[20px]">
+        <div>
+            <span class="font-bold text-[22px] ml-[15px]"> Enquiries List</span>
+            <p class="text-[rgb(119,123,128)] text-[14px] ml-[15px]">Check day by day Enquiries in one place </p>
+        </div>
+        <div class="mt-[15px]">
+            <p-button class="w-5 h-3 bg-[rgb(25,175,145)] mr-[15px] px-[30px] py-[10px] rounded-[10px]">
+                <i class="pi pi-plus mr-2 text-white text-[13px] font-bold"></i>
+                <span class="text-white font-[600] ml-[10px]">Add Enquiries</span>
+            </p-button>
+        </div>
+    </div>
+
+    <div class="mt-[10px]">
+
+        <p-card class="rounded-lg flex justify-center items-center  shadow-none ">
+
+
+            <div class="flex justify-between items-center space-x-4">
+
+
+                <div class="bg-white p-4 rounded-lg shadow-lg flex items-center h-[120px] w-[314px]">
+                    <span
+                        class="text-orange-500 text-2xl font-bold w-14 h-14 bg-[rgb(248,232,202)] rounded-full flex justify-center items-center">12</span>
+                    <div class="ml-4 text-gray-700 font-bold">Due Today</div>
+                </div>
+
+
+                <div class="bg-white p-4 rounded-lg shadow-lg flex items-center h-[120px] w-[314px]">
+                    <span
+                        class="text-[rgb(49,66,180)] text-2xl font-bold w-14 h-14 bg-[rgb(201,218,248)] rounded-full flex justify-center items-center">32</span>
+                    <div class="ml-4 text-gray-700 font-bold">Overdue</div>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-lg flex items-center  h-[120px] w-[314px]">
+                    <span
+                        class="text-[rgb(65,173,218)] text-2xl font-bold w-14 h-14 bg-[rgb(196,234,250)] rounded-full flex justify-center items-center">41</span>
+                    <div class="ml-4 text-gray-700 font-bold">Total Open Inquiry</div>
+                </div>
+
+
+                <div class="bg-white p-4 rounded-lg shadow-lg flex items-center h-[120px] w-[314px]">
+                    <span
+                        class="text-[rgb(217,42,205)] text-2xl font-bold w-14 h-14 bg-[rgb(248,196,246)] rounded-full flex justify-center items-center">05</span>
+                    <div class="ml-4 text-gray-700 font-bold">Assigned to me</div>
+                </div>
+
+            </div>
+        </p-card>
+
+    </div>
+    <div class="flex justify-center items-center mt-3 ">
+        <p-table [value]="customers" [paginator]="true" [rows]="10" class="w-[1340px] shadow-2xl">
+            <ng-template pTemplate="caption">
+                <div class="flex justify-centre items-center w-full border-b-[1px] h-[40px] py-7">
+                    <div class="flex justify-center items-center ">
+
+                        <p-button label="View all"  [outlined]="true" class="border border-gray-300 h-10 px-3 flex justify-center items-center rounded-s-md"  />
+                        <p-button label="Upcoming Due"  [outlined]="true" class=" border border-gray-300 h-10 px-3  flex justify-center items-center"></p-button>
+                        <p-button label="New Enquiries"  [outlined]="true" class=" border border-gray-300 h-10 px-3  flex justify-center items-center rounded-e-md"></p-button>
+                    </div>
+                    <span class="p-input-icon-left ml-auto flex justify-center items-center">
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text" placeholder="Search"  class="w-[300px] h-10 px-8 border border-gray-300 rounded-md"/>
+                    </span>
+                    <span class="ml-3">
+                        <p-button  class="py-[8px] px-3 border border-gray-300 rounded-md" label="Filter" icon="pi pi-align-center"></p-button>
+                    </span>
+                   
+                </div>
+            </ng-template>
+
+            <ng-template pTemplate="header">
+                <tr>
+                    <th><p-tableHeaderCheckbox class="border border-gray-400 rounded-md flex justify-items-center items-center" /></th>
+                    <th>Customer Name</th>
+                    <th>Phone No.</th>
+                    <th>Description</th>
+                    <th>Company Name</th>
+                    <th>Status</th>
+                    <th>Creation Date</th>
+                    <th>Days In</th>
+                    <th>Assigned To</th>
+                    <th>Action</th>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-customer>
+                <tr>
+                    <td class="W-0"><p-tableHeaderCheckbox class="border border-gray-400 rounded-md flex justify-items-center items-center"/></td>
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.phone }}</td>
+                    <td>{{ customer.description }}</td>
+                    <td>{{ customer.company }}</td>
+                    <td>
+                        <span [ngClass]="{
+                'bg-green-100 text-green-800 px-2 py-1 rounded': customer.status === 'New',
+                'bg-blue-100 text-blue-800 px-2 py-1 rounded': customer.status === 'In Progress',
+                'bg-red-100 text-red-800 px-2 py-1 rounded': customer.status === 'Deferred'
+              }">
+                            {{ customer.status }}
+                        </span>
+                    </td>
+                    <td>{{ customer.creationDate | date: 'dd MMM yyyy' }}</td>
+                    <td [ngClass]="{
+                'text-red-500': customer.daysIn <= 15,
+                'text-blue-700': customer.daysIn > 15 && customer.daysIn <= 30,
+                'text-green-500': customer.daysIn > 30
+              }">
+                        {{ customer.daysIn }} Days
+                    </td>
+                    <td class="flex items-center">
+                        <img [src]="customer.assignedAvatar" alt="{{ customer.assignedTo }}"
+                            class="rounded-full w-6 h-6" />
+                        <span class="ml-2">{{ customer.assignedTo }}</span>
+                    </td>
+                    <td>
+                        <p-button icon="pi pi-wave-pulse" class="text-pretty"></p-button>
+                        <p-button icon="pi pi-pencil" class="text-pretty"></p-button>
+                        <p-button icon="pi pi-user-plus" class="text-pretty"></p-button>
+                        <p-button icon="pi pi-ellipsis-v" class="text-pretty"></p-button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
