@@ -1,0 +1,69 @@
+<div class="w-screen h-screen  flex justify-center items-center fixed top-3">
+
+    <div class="w-[651px] h-[600px] rounded-md bg-white p-5 border">
+        <div class="flex justify-between items-center">
+            <span class="font-bold text-[20px]">Add Enquiries</span>
+            <span class="pi pi-times"></span>
+        </div>
+
+        <div class="card flex justify-content-center items-center">
+            <p-stepper>
+                <p-stepperPanel header="Initial info">
+                </p-stepperPanel>
+                <p-stepperPanel header="Product info">
+                </p-stepperPanel>
+            </p-stepper>
+        </div>
+
+        <div class=" flex items-center gap-28 border-b-2 py-1">
+            <span class="font-semibold">Enquiry Type</span>
+            <div class="w-[195px] h-[55px] bg-[rgb(243,243,243)] flex justify-center items-center rounded-md">
+                <p-selectButton [options]="stateOptions" [(ngModel)]="value" optionLabel="label" optionValue="value">
+                </p-selectButton>
+            </div>
+        </div>
+        <span class="text-[14px] text-gray-500">Enquiry info </span>
+
+        <div class=" flex items-center gap-28">
+            <span class="font-semibold">Person name</span>
+            <div class="flex gap-5">
+                <input type="text" placeholder="First name" class="w-[192px] h-[40px] border pl-4 rounded-md" />
+                <input type="text" placeholder="Last name" class="w-[192px] h-[40px] border pl-4 rounded-md" />
+            </div>
+        </div>
+
+        <div class="flex gap-[94px] mt-4 items-center">
+            <span class="font-semibold">Person number</span>
+            <div>
+                <input type="number" placeholder="Phone number" class="w-[405px] h-[40px] border pl-4 rounded-md" />
+            </div>
+        </div>
+
+        <div class="flex gap-[165px] mt-4 items-center">
+            <span class="font-semibold">Email</span>
+            <div>
+                <input type="email" placeholder="Enter email" class="w-[405px] h-[40px] border pl-4 rounded-md" />
+            </div>
+        </div>
+
+        <div class="flex gap-[145px] mt-4 items-center">
+            <span class="font-semibold">Address</span>
+            <div>
+                <input type="text" placeholder="Enter address" class="w-[405px] h-[40px] border pl-4 rounded-md" />
+            </div>
+        </div>
+
+        <div class="flex gap-[15px] mt-4 items-center">
+            <span class="font-semibold text-wrap">Secondary Contact Details</span>
+            <div>
+                <input type="number" placeholder="Number" class="w-[405px] h-[40px] border pl-4 rounded-md" />
+            </div>
+        </div>
+
+        <div class="card flex justify-between mt-8">
+            <p-button label="Reset" class="border w-[300px] h-[35px] rounded-md flex justify-center items-center bg-[rgb(249,250,252)]"/>
+            <p-button label="Next"  class="border w-[300px] h-[35px] rounded-md flex justify-center items-center bg-[rgb(26,176,146)]" />
+        </div>
+    </div>
+
+</div>

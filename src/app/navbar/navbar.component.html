@@ -1,46 +1,118 @@
 <div class="w-full h-full bg-gradient-to-r from-blue-200 via-blue-50 to-blue-100">
-    <div class="flex justify-center w-full">
+    <div class="flex justify-between w-full">
         <p-menubar>
-            <div class="flex justify-stretch ">
+            <div class="flex justify-center items-center">
 
-                <div class="flex items-center mr-[170px] justify-center">
+                <div class="flex items-center mr-[61px] justify-center">
                     <img src="https://cdn-b.saashub.com/images/app/service_logos/277/0mdcecm411do/large.png?1724312508"
                         alt="Boltshift logo" class="mr-3 w-8 h-8" />
                     <h2 class="text-xl font-bold mr-2 text-black">Boltshift</h2>
                 </div>
                 <div class="flex space-x-2 justify-center items-center">
                     <p-button *ngFor="let item of items"
-                        class="text1 text-[13px] rounded-[25px] px-[5px] hover:bg-white text-black">
+                        class="text-[13px] rounded-[25px] px-[9px] py-[5px] hover:bg-white hover:font-bold text-black hover:shadow-sm">
                         {{ item.label }}
                     </p-button>
                 </div>
 
-                <div class="ml-[130px] flex justify-center items-center">
-                    <p-button class="sa mr-2 text-black" icon="pi pi-cog " [rounded]="true" [raised]="true"></p-button>
-                    <p-button class="sa" icon="pi pi-bell text-black" [rounded]="true" [raised]="true"></p-button>
-                </div>
+                <div class="flex justify-center items-center">
+                    <div class="ml-[61px] flex ">
+                        <p-button class="sa mr-2 text-black" icon="pi pi-cog " [rounded]="true"
+                            [raised]="true"></p-button>
+                        <p-button class="sa" icon="pi pi-bell text-black" [rounded]="true" [raised]="true"></p-button>
+                    </div>
 
-                <div class="flex items-center ">
-                    <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        alt="User" class="rounded-full w-8 h-8 ml-2" />
+                    <div class="flex justify-center items-center ">
+                        <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="User" class="rounded-full w-8 h-8 ml-2" />
+                    </div>
                 </div>
 
             </div>
-
         </p-menubar>
     </div>
+
     <div class="flex justify-between mt-[20px]">
         <div>
             <span class="font-bold text-[22px] ml-[15px]"> Enquiries List</span>
             <p class="text-[rgb(119,123,128)] text-[14px] ml-[15px]">Check day by day Enquiries in one place </p>
         </div>
+
+
+
         <div class="mt-[15px]">
-            <p-button class="w-5 h-3 bg-[rgb(25,175,145)] mr-[15px] px-[30px] py-[10px] rounded-[10px]">
+            <p-button  class="w-5 h-3 bg-[rgb(25,175,145)] mr-[15px] px-[30px] py-[10px] rounded-[10px]"(onClick)="showDialog()">
                 <i class="pi pi-plus mr-2 text-white text-[13px] font-bold"></i>
                 <span class="text-white font-[600] ml-[10px]">Add Enquiries</span>
             </p-button>
+
+            <p-dialog header="Add Enquiries" [modal]="true" [(visible)]="visible" [style]="{width: '660px', height: '600px'}">
+                    
+                        <div class=" w-[400px] p-0">
+
+                            <p-stepper>
+                                <p-stepperPanel header="Initial info">
+                                </p-stepperPanel>
+                                <p-stepperPanel header="Product info">
+                                </p-stepperPanel>
+                            </p-stepper>
+                        </div>
+                
+                        <div class=" flex items-center gap-28 border-b-2">
+                            <span class="text-[14px] font-semibold">Enquiry Type</span>
+                            <div class="w-[215px] h-[55px] bg-[rgb(243,243,243)] flex justify-center items-center rounded-md">
+                                <p-selectButton class="text-[10px]" [options]="stateOptions" [(ngModel)]="value" optionLabel="label" optionValue="value">
+                                </p-selectButton>
+                            </div>
+                           
+                        </div>
+                        <span class="text-[14px] text-gray-500">Enquiry info </span>
+                
+                        <div class=" flex items-center gap-[125px]">
+                            <span class="font-semibold whitespace-nowrap text-[14px]">Person name</span>
+                            <div class="flex gap-5">
+                                <input type="text" placeholder="First name" class="w-[192px] h-[40px] border pl-4 rounded-md text-[14px]" />
+                                <input type="text" placeholder="Last name" class="w-[192px] h-[40px] border pl-4 rounded-md text-[14px]" />
+                            </div>
+                        </div>
+                
+                        <div class="flex gap-[110px] mt-2 items-center">
+                            <span class="font-semibold whitespace-nowrap text-[14px]">Person number</span>
+                            <div>
+                                <input type="number" placeholder="Phone number" class="w-[404px] h-[40px] border pl-4 rounded-md text-[14px]" />
+                            </div>
+                        </div>
+                
+                        <div class="flex gap-[176px] mt-2 items-center">
+                            <span class="font-semibold text-[14px]">Email</span>
+                            <div>
+                                <input type="email" placeholder="Enter email" class="w-[405px] h-[40px] border pl-4 rounded-md text-[14px]" />
+                            </div>
+                        </div>
+                
+                        <div class="flex gap-[157px] mt-2 items-center">
+                            <span class="font-semibold text-[14px]">Address</span>
+                            <div>
+                                <input type="text" placeholder="Enter address" class="w-[405px] h-[40px] border pl-4 rounded-md text-[14px]" />
+                            </div>
+                        </div>
+                
+                        <div class="flex gap-[28px] mt-2 items-center">
+                            <span class="font-semibold text-wrap text-[14px] mr-[20px]">Secondary Contact Details</span>
+                            <div>
+                                <input type="number" placeholder="Number" class="w-[403.5px] h-[40px] border pl-4 rounded-md text-[14px]" />
+                            </div>
+                        </div>
+                
+                        <div class="card flex justify-between mt-6 gap-2">
+                            <p-button label="Reset" class="border w-[300px] h-[35px] rounded-md flex justify-center items-center bg-[rgb(249,250,252)]"/>
+                            <p-button label="Next"  class="border w-[300px] h-[35px] rounded-md flex justify-center items-center bg-[rgb(26,176,146)] text-white" icon="pi pi-arrow-right" iconPos="right"/>
+                        </div>
+                  
+            </p-dialog>
         </div>
     </div>
+
 
     <div class="mt-[10px]">
 
@@ -80,79 +152,153 @@
         </p-card>
 
     </div>
-    <div class="flex justify-center items-center mt-3 ">
-        <p-table [value]="customers" [paginator]="true" [rows]="10" class="w-[1340px] shadow-2xl">
-            <ng-template pTemplate="caption">
-                <div class="flex justify-centre items-center w-full border-b-[1px] h-[40px] py-7">
-                    <div class="flex justify-center items-center ">
 
-                        <p-button label="View all"  [outlined]="true" class="border border-gray-300 h-10 px-3 flex justify-center items-center rounded-s-md"  />
-                        <p-button label="Upcoming Due"  [outlined]="true" class=" border border-gray-300 h-10 px-3  flex justify-center items-center"></p-button>
-                        <p-button label="New Enquiries"  [outlined]="true" class=" border border-gray-300 h-10 px-3  flex justify-center items-center rounded-e-md"></p-button>
-                    </div>
-                    <span class="p-input-icon-left ml-auto flex justify-center items-center">
-                        <i class="pi pi-search"></i>
-                        <input pInputText type="text" placeholder="Search"  class="w-[300px] h-10 px-8 border border-gray-300 rounded-md"/>
-                    </span>
-                    <span class="ml-3">
-                        <p-button  class="py-[8px] px-3 border border-gray-300 rounded-md" label="Filter" icon="pi pi-align-center"></p-button>
-                    </span>
-                   
-                </div>
-            </ng-template>
+    <div class="flex justify-center items-center mt-3">
 
-            <ng-template pTemplate="header">
-                <tr>
-                    <th><p-tableHeaderCheckbox class="border border-gray-400 rounded-md flex justify-items-center items-center" /></th>
-                    <th>Customer Name</th>
-                    <th>Phone No.</th>
-                    <th>Description</th>
-                    <th>Company Name</th>
-                    <th>Status</th>
-                    <th>Creation Date</th>
-                    <th>Days In</th>
-                    <th>Assigned To</th>
-                    <th>Action</th>
-                </tr>
-            </ng-template>
+        <div class="w-[1340px] shadow-2xl rounded-lg overflow-hidden">
 
-            <ng-template pTemplate="body" let-customer>
-                <tr>
-                    <td class="W-0"><p-tableHeaderCheckbox class="border border-gray-400 rounded-md flex justify-items-center items-center"/></td>
-                    <td>{{ customer.name }}</td>
-                    <td>{{ customer.phone }}</td>
-                    <td>{{ customer.description }}</td>
-                    <td>{{ customer.company }}</td>
-                    <td>
-                        <span [ngClass]="{
-                'bg-green-100 text-green-800 px-2 py-1 rounded': customer.status === 'New',
-                'bg-blue-100 text-blue-800 px-2 py-1 rounded': customer.status === 'In Progress',
-                'bg-red-100 text-red-800 px-2 py-1 rounded': customer.status === 'Deferred'
-              }">
-                            {{ customer.status }}
+            <p-table [value]="customers" [paginator]="true" [rows]="10" class="w-full">
+                <ng-template pTemplate="caption">
+                    <div class="flex justify-center items-center w-full border-b-[1px] h-[40px] py-7">
+                        <div class="flex justify-center items-center">
+                            <p-button label="View all" [outlined]="true"
+                                class="border border-gray-300 h-10 px-3 flex justify-center items-center rounded-s-md text-[14px]" />
+                            <p-button label="Upcoming Due" [outlined]="true"
+                                class="border border-gray-300 h-10 px-3 flex justify-center items-center text-[14px]"></p-button>
+                            <p-button label="New Enquiries" [outlined]="true"
+                                class="border border-gray-300 h-10 px-3 flex justify-center items-center rounded-e-md text-[14px] font-normal"></p-button>
+                        </div>
+                        <span class="p-input-icon-left ml-auto flex justify-center items-center">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" placeholder="Search"
+                                class="w-[300px] h-10 px-[40px] border border-gray-300 rounded-md font-normal" />
                         </span>
-                    </td>
-                    <td>{{ customer.creationDate | date: 'dd MMM yyyy' }}</td>
-                    <td [ngClass]="{
-                'text-red-500': customer.daysIn <= 15,
-                'text-blue-700': customer.daysIn > 15 && customer.daysIn <= 30,
-                'text-green-500': customer.daysIn > 30
-              }">
-                        {{ customer.daysIn }} Days
-                    </td>
-                    <td class="flex items-center">
-                        <img [src]="customer.assignedAvatar" alt="{{ customer.assignedTo }}"
-                            class="rounded-full w-6 h-6" />
-                        <span class="ml-2">{{ customer.assignedTo }}</span>
-                    </td>
-                    <td>
-                        <p-button icon="pi pi-wave-pulse" class="text-pretty"></p-button>
-                        <p-button icon="pi pi-pencil" class="text-pretty"></p-button>
-                        <p-button icon="pi pi-user-plus" class="text-pretty"></p-button>
-                        <p-button icon="pi pi-ellipsis-v" class="text-pretty"></p-button>
-                    </td>
-                </tr>
-            </ng-template>
-        </p-table>
+                        <span class="ml-3">
+                            <p-button class="py-[8px] px-3 border border-gray-300 rounded-md text-[14px]" label="Filter"
+                                icon="pi pi-align-center"></p-button>
+                        </span>
+                    </div>
+                </ng-template>
+
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th><p-tableHeaderCheckbox
+                                class="border border-gray-400 rounded-md flex justify-items-center items-center" /></th>
+                        <th class="font-bold  whitespace-nowrap text-[rgb(102,112,133)] text-[12px]">Customer Name</th>
+                        <th class="font-bold  whitespace-nowrap text-[rgb(102,112,133)] text-[12px]">Phone No.</th>
+                        <th class="font-bold  whitespace-nowrap text-[rgb(102,112,133)] text-[12px]">Description</th>
+                        <th class="font-bold  whitespace-nowrap text-[rgb(102,112,133)] text-[12px]">Company Name</th>
+                        <th>
+                            <div class="flex align-items-center font-bold  whitespace-nowrap items-center">
+                                <span class="text-[rgb(102,112,133)] text-[12px]">Status</span>
+                                
+                                <p-columnFilter field="representative" field="status" display="menu" matchMode="in" [showMatchModes]="false"
+                                    [showOperator]="false" [showAddButton]="false">
+                                    <ng-template pTemplate="header">
+                                        <div class="px-3 pt-3 pb-0">
+                                            <span class="font-bold">Status</span>
+                                        </div>
+                                    </ng-template>
+                                </p-columnFilter>
+                            </div>
+                        </th>
+
+
+                        <th>
+                            <div class="flex align-items-center font-bold  whitespace-nowrap items-center">
+                                <span class="text-[rgb(102,112,133)] text-[12px]">Creation Date</span>
+                                <p-columnFilter field="status" display="menu" matchMode="in" [showMatchModes]="false"
+                                    [showOperator]="false" [showAddButton]="false">
+                                    <ng-template pTemplate="header">
+                                        <div class="px-3 pt-3">
+                                            <span class="font-bold">Creation Date</span>
+                                        </div>
+                                    </ng-template>
+                                </p-columnFilter>
+                            </div>
+                        </th>
+
+                        <th>
+                            <div class="flex align-items-center font-bold  whitespace-nowrap  items-center text-[14px]">
+                                <span class="text-[rgb(102,112,133)] text-[12px]">
+                                    Days In
+                                </span>
+                              
+                                <p-columnFilter field="status" display="menu" matchMode="in" 
+                                                [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                                    <ng-template pTemplate="header">
+                                        <div class="px-3 pt-3 pb-0">
+                                            <span class="font-bold">Days In</span>
+                                        </div>
+                                    </ng-template>
+                                </p-columnFilter>
+                            </div>
+                        </th>
+
+                        <th class="font-bold  whitespace-nowrap text-[rgb(102,112,133)] text-[12px]">Assigned To</th>
+                        <th class="font-bold  whitespace-nowrap text-[rgb(102,112,133)] text-[12px]">Action</th>
+                    </tr>
+                </ng-template>2
+                <ng-template pTemplate="body" let-customer>
+                    <tr>
+                        <td class="W-0"><p-tableHeaderCheckbox
+                                class="border border-gray-400 rounded-md flex justify-items-center items-center" /></td>
+
+                                <td class="font-bold text-[14px]">
+                                    {{ customer.name }} 
+                                    <span class="text-[11px] text-[rgb(102,112,133)] font-normal">
+                                        {{ customer.email }}
+                                    </span>
+                                </td>
+                                
+                        <td class="text-[14px] whitespace-nowrap">{{ customer.phone }}</td>
+                        <td class="whitespace-nowrap text-[14px]">{{ customer.description }}</td>
+                        <td class="font-semibold text-[14px]">{{ customer.company }}</td>
+                        <td>
+                            <div class=" px-2 py-[1px] rounded-[20px] font-semibold whitespace-nowrap text-[12px] flex items-center" [ngClass]="{
+                                
+                            'bg-green-100 text-green-800 ': customer.status === 'New',
+                            'bg-blue-100 text-blue-800 ': customer.status === 'In Progress',
+                            'bg-red-100 text-red-800 ': customer.status === 'Deferred'
+                            }">
+                             <span class="w-2 h-2 rounded-full mr-[8px]" [ngClass]="{
+                                'bg-green-800': customer.status === 'New',
+                                'bg-blue-800': customer.status === 'In Progress',
+                                'bg-red-800': customer.status === 'Deferred'
+                            }"></span>
+                                {{ customer.status }}
+                            </div>
+                        </td>
+                        <td class="text-[14px]">{{ customer.creationDate | date: 'dd MMM yyyy' }}</td>
+
+                        <td class="font-bold text-[12px]" [ngClass]="{
+                        'text-red-500': customer.daysIn <= 15,
+                        'text-blue-700': customer.daysIn > 15 && customer.daysIn <= 30,
+                        'text-green-500': customer.daysIn > 30
+                      }">
+                            {{ customer.daysIn }} Days
+                        </td>
+                        <td class="flex items-center">
+                            <img [src]="customer.assignedAvatar" alt="{{ customer.assignedTo }}"
+                                class="rounded-full w-6 h-6" />
+                            <span class="ml-2 text-[14px]">{{ customer.assignedTo }}</span>
+                        </td>
+                        <td >
+                            <span class="flex">
+                                <p-button icon="pi pi-wave-pulse" class="text-pretty text-[8px]"></p-button>
+                                <p-button icon="pi pi-pencil" class="text-pretty text-[8px]"></p-button>
+                                <p-button icon="pi pi-user-plus" class="text-pretty text-[8px]"></p-button>
+                                <p-button icon="pi pi-ellipsis-v" class="text-pretty text-[8px]"></p-button>
+                                
+                            </span>
+                            
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+
+        </div>
+
     </div>
+
 </div>

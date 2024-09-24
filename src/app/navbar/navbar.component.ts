@@ -8,19 +8,34 @@ import { TableModule } from 'primeng/table';
 import { PaginatorModule } from 'primeng/paginator';
 import { FormsModule } from '@angular/forms';
 import { MultiSelectModule } from 'primeng/multiselect';
+// import { RouterModule } from '@angular/router';
+import { DialogModule } from 'primeng/dialog';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { StepperModule } from 'primeng/stepper';
+import { InputTextModule } from 'primeng/inputtext';
+
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [MenubarModule,ButtonModule,MenuModule, CommonModule,CardModule,TableModule,PaginatorModule,FormsModule,MultiSelectModule],
+  imports: [ InputTextModule ,StepperModule,SelectButtonModule,DialogModule,MenubarModule,ButtonModule,MenuModule, CommonModule,CardModule,TableModule,PaginatorModule,FormsModule,MultiSelectModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  
 
+  visible: boolean = false;
 
+  showDialog() {
+      this.visible = true;
+  }
 
+  stateOptions: any[] = [{ label: 'Person', value: 'person' },{ label: 'Company', value: 'company' }];
 
+  value: string = 'off';
+
+  
   items = [
     { label: 'Dashboard' },
     { label: 'Enquiries' },
@@ -39,19 +54,19 @@ export class NavbarComponent {
 
 
   customers = [
-    { name: 'Bessie Cooper', phone: '(609) 555-0123', description: 'Lorem ipsum dolor...', company: 'BuroSake', status: 'New', creationDate: '2022-01-24', daysIn: 1, assignedTo: 'Dakota', assignedAvatar: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
+    { name: 'Bessie Cooper', phone: '(609) 555-0123', description: 'Lorem ipsum dolor...', company: 'BuroSake', status: 'New', creationDate: '2022-01-24', daysIn: 42, assignedTo: 'Dakota', assignedAvatar: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',email:'nevaeh.simmons@example.com' },
     
-    { name: 'Eleanor Pena', phone: '(505) 555-0192', description: 'Lorem ipsum dolor...', company: 'BMC Info', status: 'Deferred', creationDate: '2022-01-18', daysIn: 6, assignedTo: 'Olukay', assignedAvatar: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
+    { name: 'Eleanor Pena', phone: '(505) 555-0192', description: 'Lorem ipsum dolor...', company: 'BMC Info', status: 'Deferred', creationDate: '2022-01-18', daysIn: 6, assignedTo: 'Olukay', assignedAvatar: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',email:'nevaeh.simmons@example.com' },
     
-    { name: 'Eleanor Pena', phone: '(505) 555-0192', description: 'Lorem ipsum dolor...', company: 'BMC Info', status: 'In Progress', creationDate: '2022-01-18', daysIn: 20, assignedTo: 'Olukay', assignedAvatar: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
+    { name: 'Eleanor Pena', phone: '(505) 555-0192', description: 'Lorem ipsum dolor...', company: 'BMC Info', status: 'In Progress', creationDate: '2022-01-18', daysIn: 20, assignedTo: 'Olukay', assignedAvatar: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',email:'nevaeh.simmons@example.com' },
     
-    { name: 'Eleanor Pena', phone: '(505) 555-0192', description: 'Lorem ipsum dolor...', company: 'BMC Info', status: 'Deferred', creationDate: '2022-01-18', daysIn: 9, assignedTo: 'Olukay', assignedAvatar: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
+    { name: 'Eleanor Pena', phone: '(505) 555-0192', description: 'Lorem ipsum dolor...', company: 'BMC Info', status: 'Deferred', creationDate: '2022-01-18', daysIn: 9, assignedTo: 'Olukay', assignedAvatar: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',email:'nevaeh.simmons@example.com' },
     
-    { name: 'Eleanor Pena', phone: '(505) 555-0192', description: 'Lorem ipsum dolor...', company: 'BMC Info', status: 'In Progress', creationDate: '2022-01-18', daysIn: 11, assignedTo: 'Olukay', assignedAvatar: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
+    { name: 'Eleanor Pena', phone: '(505) 555-0192', description: 'Lorem ipsum dolor...', company: 'BMC Info', status: 'In Progress', creationDate: '2022-01-18', daysIn: 25, assignedTo: 'Olukay', assignedAvatar: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',email:'nevaeh.simmons@example.com' },
 
-    { name: 'Eleanor Pena', phone: '(505) 555-0192', description: 'Lorem ipsum dolor...', company: 'BMC Info', status: 'In Progress', creationDate: '2022-01-18', daysIn: 11, assignedTo: 'Olukay', assignedAvatar: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
+    { name: 'Eleanor Pena', phone: '(505) 555-0192', description: 'Lorem ipsum dolor...', company: 'BMC Info', status: 'In Progress', creationDate: '2022-01-18', daysIn: 11, assignedTo: 'Olukay', assignedAvatar: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',email:'nevaeh.simmons@example.com' },
 
-    { name: 'Eleanor Pena', phone: '(505) 555-0192', description: 'Lorem ipsum dolor...', company: 'BMC Info', status: 'In Progress', creationDate: '2022-01-18', daysIn: 11, assignedTo: 'Olukay', assignedAvatar: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' }
+    { name: 'Eleanor Pena', phone: '(505) 555-0192', description: 'Lorem ipsum dolor...', company: 'BMC Info', status: 'In Progress', creationDate: '2022-01-18', daysIn: 32, assignedTo: 'Olukay', assignedAvatar: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',email:'nevaeh.simmons@example.com' }
  
   ];
   
