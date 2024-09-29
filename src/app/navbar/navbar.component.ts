@@ -8,7 +8,6 @@ import { TableModule } from 'primeng/table';
 import { PaginatorModule } from 'primeng/paginator';
 import { FormsModule } from '@angular/forms';
 import { MultiSelectModule } from 'primeng/multiselect';
-// import { RouterModule } from '@angular/router';
 import { DialogModule } from 'primeng/dialog';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { StepperModule } from 'primeng/stepper';
@@ -23,12 +22,30 @@ import { InputTextModule } from 'primeng/inputtext';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  
 
-  visible: boolean = false;
+
+  visible: boolean = true;
+
+  dialogWidth: string = '1320px'; 
+  justifyContent: boolean = true; 
+  isBorderReduced = false;
 
   showDialog() {
-      this.visible = true;
+    this.visible = true;
+  }
+
+  increaseWidth() {
+
+    this.dialogWidth = '1320px';
+    this.justifyContent = false;
+    this.isBorderReduced = true;
+
+  }
+
+  resetWidth() {
+    this.dialogWidth = '660px'; 
+    this.justifyContent = true;
+    this.isBorderReduced = false;
   }
 
   stateOptions: any[] = [{ label: 'Person', value: 'person' },{ label: 'Company', value: 'company' }];
@@ -76,6 +93,14 @@ export class NavbarComponent {
     { label: 'Inactive', value: 'inactive' },
     { label: 'Pending', value: 'pending' }
 ];
+
+customers1 = [
+  {name: 'Eleanor Pena',email: 'crutis.weaver@ple.com',phone: '+91987654323',match: '30%'},
+  {name: 'Eleanor Pena',email: 'crutis.weaver@ple.com',phone: '+91987654323',match: '10%'},
+  {name: 'Eleanor Pena',email: 'crutis.weaver@ple.com',phone: '+91987654323',match: '05%'},
+  {name: 'Eleanor Pena',email: 'crutis.weaver@ple.com',phone: '+91987654323',match: '45%'},
+  {name: 'Eleanor Pena',email: 'crutis.weaver@ple.com',phone: '+91987654323',match: '20%'},
+]
 
 }
 
